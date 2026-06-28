@@ -40,7 +40,15 @@
 
 ---
 
-## 🚀 Quick Start
+## 🎮 Play Online
+
+Play directly in your browser without any installation:
+
+👉 **[https://gadgetking-y.github.io/777_tripleseven/](https://gadgetking-y.github.io/777_tripleseven/)**
+
+---
+
+## 🚀 Local Setup
 
 Simply open `index.html` in any modern browser, or run a lightweight local server:
 

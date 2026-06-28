@@ -2,7 +2,12 @@
 
 ポケコン向けアクションパズル「777(Three Sevens)」をWebアプリとして遊べるようにした静的実装です。縦方向にブロックが落ちるWeb向け画面で再現しています。
 
-## 起動
+## 🎮 Webで遊ぶ
+
+ブラウザで直接遊べます（GitHub Pages）:
+👉 **[https://gadgetking-y.github.io/777_tripleseven/](https://gadgetking-y.github.io/777_tripleseven/)**
+
+## ローカルでの起動
 
 `index.html` をブラウザで開くか、ローカルサーバーで確認します。
 
