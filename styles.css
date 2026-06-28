@@ -1,0 +1,297 @@
+:root {
+  color-scheme: light;
+  --ink: #253228;
+  --screen: #c7d69f;
+  --screen-dark: #87936e;
+  --cell: rgba(38, 50, 40, 0.1);
+  --device: #6f7780;
+  --device-dark: #343a40;
+  --accent: #c6372e;
+  --button: #f4f0e5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #e9e3d2;
+  color: var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0;
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  width: min(100%, 980px);
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: clamp(10px, 2vh, 24px) clamp(12px, 3vw, 32px);
+  display: grid;
+  align-content: center;
+  gap: clamp(8px, 1.5vh, 14px);
+}
+
+.device {
+  border: 1px solid #222831;
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, transparent 0 2%, rgba(255, 255, 255, 0.4) 2% 2.5%, transparent 2.5% 97.5%, rgba(255, 255, 255, 0.4) 97.5% 98%, transparent 98%),
+    linear-gradient(180deg, #8f98a1, var(--device) 34%, #4d555e 100%);
+  box-shadow: 0 18px 34px rgba(27, 30, 33, 0.24), inset 0 0 0 4px rgba(255, 255, 255, 0.18);
+  padding: clamp(8px, 1.5vh, 16px);
+}
+
+.brand-bar {
+  min-height: clamp(18px, 3vh, 24px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #f7f7f2;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
+  font-weight: 800;
+  font-size: clamp(13px, 2vw, 20px);
+}
+
+.lcd {
+  margin-top: clamp(6px, 1vh, 10px);
+  border: 3px solid var(--device-dark);
+  border-radius: 6px;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.04)),
+    var(--screen);
+  box-shadow: inset 0 0 18px rgba(42, 54, 42, 0.28);
+  padding: clamp(6px, 1.4vh, 12px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(112px, 170px);
+  gap: clamp(8px, 2vw, 16px);
+}
+
+.game-grid {
+  width: auto;
+  height: min(58vh, 58dvh, 560px);
+  max-width: 100%;
+  aspect-ratio: 7 / 13;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(13, 1fr);
+  gap: 3px;
+  align-self: center;
+  justify-self: center;
+}
+
+.cell,
+.next-cell {
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  background: var(--cell);
+  color: transparent;
+  font-weight: 900;
+  line-height: 1;
+  user-select: none;
+}
+
+.cell.filled,
+.next-cell.filled {
+  color: var(--ink);
+  background: rgba(244, 247, 219, 0.48);
+  border: 2px solid rgba(37, 50, 40, 0.72);
+  box-shadow: inset 0 -2px 0 rgba(37, 50, 40, 0.16);
+}
+
+.cell.active {
+  background: #eef4c6;
+  border-color: #101710;
+}
+
+.cell.clearing {
+  animation: pulse-clear 130ms alternate infinite;
+}
+
+.cell[data-value="7"],
+.next-cell[data-value="7"] {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.cell {
+  font-size: clamp(15px, 3.6vh, 30px);
+}
+
+.next-cell {
+  width: 42px;
+  height: 42px;
+  font-size: 24px;
+}
+
+.status-panel {
+  border-left: 2px solid rgba(37, 50, 40, 0.42);
+  padding-left: clamp(10px, 2vw, 16px);
+  display: grid;
+  align-content: start;
+  gap: clamp(8px, 1.5vh, 12px);
+}
+
+.label {
+  color: var(--screen-dark);
+  font-size: clamp(11px, 1.8vw, 14px);
+  font-weight: 800;
+}
+
+.stat-block strong {
+  display: block;
+  min-height: 1.2em;
+  font-size: clamp(18px, 3.2vh, 30px);
+}
+
+.next-stack {
+  width: 48px;
+  display: grid;
+  gap: 4px;
+}
+
+.message-line {
+  min-height: clamp(24px, 4vh, 32px);
+  display: grid;
+  place-items: center;
+  color: #f8f8ed;
+  font-weight: 800;
+  font-size: clamp(13px, 2.4vw, 20px);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.icon-button,
+.command-button {
+  min-height: clamp(38px, 6vh, 48px);
+  border: 1px solid #958b77;
+  border-radius: 8px;
+  background: var(--button);
+  color: #242a27;
+  box-shadow: 0 3px 0 #b2a68e;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.icon-button {
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.command-button {
+  font-weight: 800;
+}
+
+.icon-button:active,
+.command-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #b2a68e;
+}
+
+.rule-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.rule-strip div {
+  min-height: clamp(44px, 7vh, 58px);
+  border: 1px solid #d4c9b3;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.54);
+  padding: clamp(7px, 1.3vh, 10px) 12px;
+  display: grid;
+  align-content: center;
+  gap: 4px;
+}
+
+.rule-strip strong {
+  font-size: 16px;
+}
+
+.rule-strip span {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+}
+
+@keyframes pulse-clear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.35;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    align-content: start;
+  }
+
+  .lcd {
+    grid-template-columns: 1fr;
+  }
+
+  .game-grid {
+    max-width: none;
+  }
+
+  .status-panel {
+    border-left: 0;
+    border-top: 2px solid rgba(37, 50, 40, 0.42);
+    padding-left: 0;
+    padding-top: 10px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .next-stack {
+    grid-template-columns: repeat(2, 34px);
+    width: auto;
+  }
+
+  .next-cell {
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+  }
+
+  .controls,
+  .rule-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .app-shell {
+    padding: 10px;
+  }
+
+  .status-panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .controls {
+    gap: 8px;
+  }
+
+  .command-button {
+    font-size: 12px;
+  }
+}

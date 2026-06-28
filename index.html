@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>777 Three Sevens</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell" aria-label="777 Three Sevens">
+      <section class="device" aria-label="ゲーム本体">
+        <div class="brand-bar">
+          <span>777</span>
+          <span>THREE SEVENS</span>
+        </div>
+
+        <div class="lcd" id="lcd">
+          <div class="game-grid" id="gameGrid" aria-label="ゲーム盤面"></div>
+
+          <aside class="status-panel" aria-label="ステータス">
+            <div class="next-box">
+              <div class="label">NEXT</div>
+              <div class="next-stack" id="nextStack" aria-label="次のブロック"></div>
+            </div>
+            <div class="stat-block">
+              <div class="label">LEVEL</div>
+              <strong id="levelValue">1</strong>
+            </div>
+            <div class="stat-block">
+              <div class="label">SCORE</div>
+              <strong id="scoreValue">000000</strong>
+            </div>
+            <div class="stat-block">
+              <div class="label">HI</div>
+              <strong id="bestValue">000000</strong>
+            </div>
+          </aside>
+        </div>
+
+        <div class="message-line" id="messageLine">777 &lt;FOR WEB&gt;</div>
+      </section>
+
+      <section class="controls" aria-label="操作">
+        <button type="button" class="icon-button" id="leftButton" aria-label="左へ移動" title="左へ移動">←</button>
+        <button type="button" class="icon-button" id="swapButton" aria-label="回転" title="回転">↻</button>
+        <button type="button" class="icon-button" id="rightButton" aria-label="右へ移動" title="右へ移動">→</button>
+        <button type="button" class="command-button" id="dropButton">DROP</button>
+        <button type="button" class="command-button" id="pauseButton">PAUSE</button>
+        <button type="button" class="command-button" id="restartButton">RESTART</button>
+      </section>
+
+      <section class="rule-strip" aria-label="消し方">
+        <div><strong>1-6</strong><span>縦横3個以上で合計7</span></div>
+        <div><strong>7</strong><span>縦横3個以上で消滅</span></div>
+        <div><strong>連鎖</strong><span>隣接ブロックが変化</span></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
