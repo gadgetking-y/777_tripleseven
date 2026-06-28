@@ -56,3 +56,9 @@ Simply open `index.html` in any modern browser, or run a lightweight local serve
 python3 -m http.server 5173
 ```
 Then navigate to `http://localhost:5173`.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).

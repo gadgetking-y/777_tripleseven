@@ -43,3 +43,7 @@ python3 -m http.server 5173
 
 http://cosmopatrol.web.fc2.com/game_777.html
 ここにあるゲームをWebアプリとして作りました。
+
+## ライセンス
+
+[MIT License](LICENSE)
